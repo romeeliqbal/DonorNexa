@@ -1,0 +1,2370 @@
+
+/* =========================================================
+   DONORNEXA - COMPLETE WEBSITE DESIGN
+   Theme: Modern Medical / Blood Donation Platform
+========================================================= */
+
+/* 1. GLOBAL SETTINGS
+========================================================= */
+
+:root {
+    --primary: #a71930;
+    --primary-dark: #801326;
+    --primary-light: #fff0f2;
+    --accent: #e34b5f;
+
+    --background: #f4f6fa;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+
+    --text: #202938;
+    --text-light: #667085;
+    --text-muted: #98a2b3;
+
+    --border: #e5e9f0;
+
+    --success: #198754;
+    --success-bg: #eaf7ef;
+
+    --warning: #b7791f;
+    --warning-bg: #fff7e6;
+
+    --info: #2563a6;
+    --info-bg: #eaf3ff;
+
+    --danger: #c62828;
+    --danger-bg: #fff0f0;
+
+    --shadow-sm: 0 2px 8px rgba(20, 35, 60, 0.05);
+    --shadow-md: 0 8px 25px rgba(20, 35, 60, 0.08);
+    --shadow-lg: 0 15px 40px rgba(20, 35, 60, 0.12);
+
+    --radius-sm: 8px;
+    --radius-md: 13px;
+    --radius-lg: 18px;
+
+    --transition: 0.25s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    transition: color var(--transition),
+                background-color var(--transition),
+                transform var(--transition);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+::selection {
+    background: #f5c4cb;
+    color: var(--primary-dark);
+}
+
+
+/* 2. ANIMATIONS
+========================================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(167, 25, 48, 0.15);
+    }
+    50% {
+        box-shadow: 0 0 0 9px rgba(167, 25, 48, 0);
+    }
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.hero-content,
+.login-card,
+.register-form,
+.donor-welcome,
+.hospital-welcome,
+.admin-welcome,
+.profile-card,
+.edit-profile-card,
+.hospital-request-card,
+.donor-card,
+.hospital-card,
+.admin-card {
+    animation: fadeIn 0.6s ease both;
+}
+
+.stat-box,
+.step-card,
+.request-card {
+    animation: slideUp 0.6s ease both;
+}
+
+
+/* 3. GLOBAL BUTTON STYLING
+========================================================= */
+
+.btn-primary,
+.request-btn,
+.login-button,
+.register-form button,
+.edit-profile-button,
+.profile-back-btn,
+.profile-edit-btn,
+.request-edit-btn,
+.no-requests-message a {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    transition: all var(--transition);
+}
+
+.btn-primary:hover,
+.request-btn:hover,
+.login-button:hover,
+.register-form button:hover,
+.edit-profile-button:hover,
+.profile-back-btn:hover,
+.profile-edit-btn:hover,
+.request-edit-btn:hover,
+.no-requests-message a:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(167, 25, 48, 0.2);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(167, 25, 48, 0.25);
+    outline-offset: 3px;
+}
+
+
+/* 4. HOMEPAGE NAVIGATION
+========================================================= */
+
+header {
+    position: relative;
+    z-index: 10;
+    background: var(--surface);
+    padding: 18px 6%;
+    box-shadow: var(--shadow-sm);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.7px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 28px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    padding: 10px 19px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.nav-buttons a:first-child {
+    color: var(--primary);
+}
+
+.nav-buttons a:first-child:hover {
+    background: var(--primary-light);
+}
+
+.nav-buttons a:last-child {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.nav-buttons a:last-child:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+
+/* 5. HOMEPAGE HERO SECTION
+========================================================= */
+
+.hero {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 75px 20px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(227, 75, 95, 0.10), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(167, 25, 48, 0.10), transparent 30%),
+        linear-gradient(135deg, #fff8f8, #fcebed);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 5vw, 52px);
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: -1.3px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 17px;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 9px;
+    font-weight: 700;
+    transition: all var(--transition);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: var(--primary);
+    border: 1px solid #e6a5ae;
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+
+/* 6. HOMEPAGE STATISTICS
+========================================================= */
+
+.statistics {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 55px 6%;
+    background: var(--surface);
+}
+
+.stat-box {
+    flex: 1;
+    max-width: 300px;
+    min-width: 200px;
+    text-align: center;
+    padding: 32px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+}
+
+.stat-box:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: #e6a5ae;
+}
+
+.stat-box h2 {
+    font-size: 38px;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.stat-box p {
+    font-size: 15px;
+    color: var(--text-light);
+}
+
+
+/* 7. HOMEPAGE SECTION HEADINGS
+========================================================= */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    color: var(--text);
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.section-heading p {
+    color: var(--text-light);
+    font-size: 15px;
+}
+
+
+/* 8. EMERGENCY BLOOD REQUESTS
+========================================================= */
+
+.emergency {
+    padding: 70px 6%;
+    background: var(--background);
+}
+
+.request-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.request-card {
+    background: var(--surface);
+    width: 300px;
+    padding: 27px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+    transition: all var(--transition);
+}
+
+.request-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.blood-group {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 9px 16px;
+    border-radius: 9px;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.request-card h3 {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 14px;
+}
+
+.request-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.request-card .urgency {
+    color: var(--danger);
+    font-weight: 700;
+}
+
+.request-btn {
+    display: inline-block;
+    margin-top: 13px;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* 9. HOW IT WORKS
+========================================================= */
+
+.how-it-works {
+    padding: 70px 6%;
+    background: var(--surface);
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.step-card {
+    flex: 1;
+    min-width: 220px;
+    max-width: 320px;
+    padding: 32px 25px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+}
+
+.step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.step-number {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 21px;
+    font-weight: 800;
+    animation: softPulse 3s infinite;
+}
+
+.step-card h3 {
+    font-size: 19px;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+
+/* 10. GENERAL FOOTER
+========================================================= */
+
+footer {
+    background: #182333;
+    color: #ffffff;
+    padding: 55px 6% 22px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-box {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-box h2 {
+    color: #ff7181;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.footer-box h3 {
+    font-size: 17px;
+    margin-bottom: 18px;
+    color: #ffffff;
+}
+
+.footer-box p {
+    color: #c5ced9;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 10px;
+}
+
+.footer-box ul {
+    list-style: none;
+}
+
+.footer-box ul li {
+    margin-bottom: 12px;
+}
+
+.footer-box ul li a {
+    color: #c5ced9;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-box ul li a:hover {
+    color: #ff7181;
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #354254;
+    margin-top: 38px;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    color: #aeb8c5;
+    font-size: 13px;
+}
+
+
+/* 11. REGISTRATION PAGE
+========================================================= */
+
+.register-page {
+    background:
+        radial-gradient(circle at top left, rgba(227, 75, 95, 0.09), transparent 35%),
+        var(--background);
+    min-height: 100vh;
+    padding: 45px 20px;
+}
+
+.register-page h1 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 30px;
+    margin-bottom: 28px;
+}
+
+.register-form {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--surface);
+    padding: 35px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.register-form input,
+.register-form select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 19px;
+    font-size: 14px;
+    background: #ffffff;
+    color: var(--text);
+    transition: all var(--transition);
+}
+
+.register-form input:focus,
+.register-form select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(167, 25, 48, 0.09);
+}
+
+.register-form button {
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* 12. LOGIN PAGE
+========================================================= */
+
+.login-page {
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(227, 75, 95, 0.12), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(167, 25, 48, 0.10), transparent 30%),
+        #f8f3f5;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--surface);
+    padding: 42px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-brand h1 {
+    color: var(--primary);
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.login-brand h1 span {
+    color: var(--text);
+}
+
+.login-brand p {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.login-heading {
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.login-heading h2 {
+    color: var(--text);
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.login-heading p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+    transition: all var(--transition);
+}
+
+.login-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(167, 25, 48, 0.09);
+}
+
+.login-button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-error {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border: 1px solid #f2c2c2;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.login-footer p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.login-footer a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-footer .back-home {
+    display: inline-block;
+    margin-top: 13px;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+
+/* 13. DONOR DASHBOARD
+========================================================= */
+
+.donor-dashboard {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+.donor-navbar {
+    background: var(--surface);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 18px 7%;
+    box-shadow: var(--shadow-sm);
+}
+
+.donor-nav-brand {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.donor-nav-brand span {
+    color: var(--text);
+}
+
+.donor-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 24px;
+}
+
+.donor-nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.donor-nav-links a:hover {
+    color: var(--primary);
+}
+
+.donor-nav-links .donor-logout-btn {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 10px 19px;
+    border-radius: 8px;
+}
+
+.donor-nav-links .donor-logout-btn:hover {
+    background: var(--primary-dark);
+    color: #ffffff;
+}
+
+.donor-main {
+    width: 88%;
+    max-width: 1250px;
+    margin: 42px auto;
+}
+
+.donor-welcome {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #86162b, #c52c47, #e34b5f);
+    color: #ffffff;
+    padding: 43px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 28px rgba(167, 25, 48, 0.18);
+}
+
+.donor-welcome::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border: 35px solid rgba(255, 255, 255, 0.07);
+    border-radius: 50%;
+    right: -65px;
+    top: -100px;
+}
+
+.donor-welcome-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: 0.85;
+}
+
+.donor-welcome h1 {
+    font-size: 32px;
+    margin: 12px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.donor-welcome p {
+    font-size: 15px;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+}
+
+.donor-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23px;
+    margin-bottom: 30px;
+}
+
+.donor-card {
+    background: var(--surface);
+    padding: 29px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all var(--transition);
+}
+
+.donor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: #e8b2ba;
+}
+
+.donor-card-icon {
+    font-size: 33px;
+    margin-bottom: 15px;
+}
+
+.donor-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.donor-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+.donor-info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 23px;
+    margin-bottom: 40px;
+}
+
+.donor-info-box {
+    background: var(--surface);
+    padding: 29px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.donor-info-box h2 {
+    color: var(--primary);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.donor-info-box p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-light);
+}
+
+.donor-footer {
+    background: var(--surface);
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.donor-footer p {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+
+/* 14. HOSPITAL DASHBOARD
+========================================================= */
+
+.hospital-dashboard {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+.hospital-navbar {
+    background: var(--surface);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 18px 7%;
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* Admin Navigation Bar */
+.admin-navbar {
+    width: 100%;
+    min-height: 85px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 16px 5%;
+    box-shadow: 0 2px 10px rgba(20, 35, 60, 0.07);
+    position: relative;
+    z-index: 10;
+}
+
+.admin-nav-brand {
+    flex-shrink: 0;
+    line-height: 1.2;
+}
+
+.admin-nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.admin-nav-brand {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.hospital-nav-brand span,
+.admin-nav-brand span {
+    color: var(--text);
+}
+
+.hospital-nav-links,
+.admin-nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.hospital-nav-links a,
+.admin-nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hospital-nav-links a:hover,
+.admin-nav-links a:hover {
+    color: var(--primary);
+}
+
+.hospital-nav-links .hospital-logout-btn,
+.admin-nav-links .admin-logout-btn {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 10px 19px;
+    border-radius: 8px;
+}
+
+.hospital-nav-links .hospital-logout-btn:hover,
+.admin-nav-links .admin-logout-btn:hover {
+    background: var(--primary-dark);
+    color: #ffffff;
+}
+
+.hospital-main,
+.admin-main {
+    width: 88%;
+    max-width: 1250px;
+    margin: 42px auto;
+}
+
+.hospital-welcome,
+.admin-welcome {
+    background: linear-gradient(120deg, #86162b, #c52c47, #e34b5f);
+    color: #ffffff;
+    padding: 43px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 28px rgba(167, 25, 48, 0.16);
+}
+
+.hospital-welcome-label,
+.admin-welcome-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: 0.85;
+}
+
+.hospital-welcome h1,
+.admin-welcome h1 {
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.hospital-welcome p,
+.admin-welcome p {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.hospital-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23px;
+    margin-bottom: 30px;
+}
+
+.hospital-card,
+.admin-card {
+    background: var(--surface);
+    padding: 29px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all var(--transition);
+}
+
+.hospital-card:hover,
+.admin-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: #e8b2ba;
+}
+
+.hospital-card-icon,
+.admin-card-icon {
+    font-size: 33px;
+    margin-bottom: 15px;
+}
+
+.hospital-card h3,
+.admin-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.hospital-card p,
+.admin-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+.admin-card a {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 16px;
+    background: var(--primary-light);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.admin-card a:hover {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.hospital-info-section,
+.admin-info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 23px;
+    margin-bottom: 40px;
+}
+
+.hospital-info-box,
+.admin-info-box {
+    background: var(--surface);
+    padding: 29px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.hospital-info-box h2,
+.admin-info-box h2 {
+    color: var(--primary);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.hospital-info-box p,
+.admin-info-box p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-light);
+}
+
+.hospital-footer,
+.admin-footer {
+    background: var(--surface);
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.hospital-footer p,
+.admin-footer p {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.admin-nav-brand small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 3px;
+}
+
+
+/* 15. DONOR PROFILE PAGE
+========================================================= */
+
+.profile-page {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+}
+
+.profile-navbar {
+    background: var(--surface);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 18px 7%;
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-brand {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.profile-brand span {
+    color: var(--text);
+}
+
+.profile-nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.profile-nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.profile-nav-links a:hover {
+    color: var(--primary);
+}
+
+.profile-nav-links .profile-logout {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+
+.profile-main {
+    width: 88%;
+    max-width: 950px;
+    margin: 42px auto;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header h1 {
+    color: var(--primary);
+    font-size: 31px;
+    margin-bottom: 8px;
+}
+
+.profile-header p {
+    color: var(--text-light);
+}
+
+.profile-card {
+    background: var(--surface);
+    padding: 38px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.profile-avatar {
+    font-size: 58px;
+    margin-bottom: 10px;
+}
+
+.profile-card h2 {
+    margin: 5px 0;
+    color: var(--text);
+}
+
+.profile-role {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+    text-align: left;
+}
+
+.profile-detail {
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    padding: 19px;
+    border-radius: 10px;
+    transition: all var(--transition);
+}
+
+.profile-detail:hover {
+    border-color: #e6a5ae;
+    background: var(--primary-light);
+}
+
+.profile-detail span {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.profile-detail strong {
+    font-size: 15px;
+    color: var(--text);
+    overflow-wrap: anywhere;
+}
+
+.profile-back-btn,
+.profile-edit-btn {
+    display: inline-block;
+    margin-top: 28px;
+    margin-right: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.profile-footer {
+    background: var(--surface);
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.profile-footer p {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+
+/* 16. EDIT PROFILE PAGE
+========================================================= */
+
+.edit-profile-page {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+}
+
+.edit-profile-main {
+    width: 90%;
+    max-width: 620px;
+    margin: 45px auto;
+}
+
+.edit-profile-card {
+    background: var(--surface);
+    padding: 38px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+}
+
+.edit-profile-card h1 {
+    color: var(--primary);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.edit-profile-subtitle {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.edit-form-group {
+    margin-bottom: 22px;
+}
+
+.edit-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 9px;
+    color: var(--text);
+}
+
+.edit-form-group input,
+.edit-form-group select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    font-size: 14px;
+    background: #ffffff;
+    color: var(--text);
+    transition: all var(--transition);
+}
+
+.edit-form-group input:focus,
+.edit-form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(167, 25, 48, 0.09);
+}
+
+.edit-profile-button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.edit-profile-cancel {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.edit-profile-cancel:hover {
+    color: var(--primary);
+}
+
+.profile-edit-btn {
+    display: inline-block;
+    margin-top: 28px;
+    margin-right: 8px;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.edit-profile-error,
+.login-error {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border: 1px solid #f2c2c2;
+    padding: 13px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.profile-success {
+    background: var(--success-bg);
+    color: var(--success);
+    border: 1px solid #b8e0c7;
+    padding: 13px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+
+/* 17. HOSPITAL BLOOD REQUESTS
+========================================================= */
+
+.hospital-requests-page {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+}
+
+.hospital-requests-main {
+    width: 90%;
+    max-width: 1150px;
+    margin: 42px auto;
+}
+
+.hospital-requests-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.hospital-requests-header h1 {
+    color: var(--primary);
+    font-size: 31px;
+    margin-bottom: 9px;
+}
+
+.hospital-requests-header p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.hospital-requests-info {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.hospital-requests-info h3 {
+    margin-bottom: 9px;
+    color: var(--text);
+}
+
+.hospital-requests-info p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.hospital-requests-info strong {
+    color: var(--primary);
+}
+
+.hospital-requests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.hospital-request-card {
+    background: var(--surface);
+    padding: 27px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all var(--transition);
+}
+
+.hospital-request-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.request-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.request-card-header h2 {
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 7px;
+}
+
+.request-created-date {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.request-status {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.status-open {
+    background: var(--info-bg);
+    color: var(--info);
+}
+
+.status-fulfilled {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.status-expired {
+    background: #edf0f4;
+    color: #667085;
+}
+
+.status-cancelled {
+    background: var(--danger-bg);
+    color: var(--danger);
+}
+
+.request-card-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.request-detail {
+    background: var(--surface-soft);
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+.request-detail span {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.request-detail strong {
+    font-size: 15px;
+    color: var(--text);
+    overflow-wrap: anywhere;
+}
+
+.request-remaining {
+    margin-top: 20px;
+    padding: 14px;
+    background: var(--primary-light);
+    border-radius: 9px;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.request-remaining strong {
+    color: var(--primary);
+}
+
+.request-notes {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.request-notes strong {
+    font-size: 13px;
+    color: var(--text);
+}
+
+.request-notes p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.no-requests-message {
+    background: var(--surface);
+    padding: 48px 25px;
+    text-align: center;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.no-requests-message h2 {
+    color: var(--text);
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.no-requests-message p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.no-requests-message a {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 22px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+
+/* 18. REQUEST ACTION BUTTONS
+========================================================= */
+
+.request-card-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+}
+
+.request-card-actions form {
+    margin: 0;
+}
+
+.request-view-btn,
+.request-edit-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.request-view-btn {
+    background: #edf0f4;
+    color: var(--text);
+}
+
+.request-view-btn:hover {
+    background: #dfe4eb;
+}
+
+.request-edit-btn {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.request-cancel-btn {
+    padding: 10px 18px;
+    border: 1px solid #f1c4c4;
+    border-radius: 7px;
+    background: var(--danger-bg);
+    color: var(--danger);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.request-cancel-btn:hover {
+    background: #ffdddd;
+    transform: translateY(-2px);
+}
+
+
+/* 19. FEEDBACK MESSAGES
+========================================================= */
+
+.request-message {
+    padding: 14px 18px;
+    margin: 0 0 20px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.request-message-success {
+    background: var(--success-bg);
+    color: var(--success);
+    border: 1px solid #b8e0c7;
+}
+
+.request-message-error {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border: 1px solid #f2c2c2;
+}
+
+
+/* 20. DONOR SEARCH
+========================================================= */
+
+.donor-search-results {
+    margin-top: 28px;
+}
+
+.donor-search-results h2 {
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.donor-search-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 23px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+}
+
+.donor-search-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.donor-search-blood-group {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+
+/* 21. SHARED FORMS AND INPUTS
+========================================================= */
+
+/* These rules also help style forms on pages that do not
+   have their own dedicated form classes. */
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="hidden"]),
+select,
+textarea {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    background: #ffffff;
+    transition: border-color var(--transition),
+                box-shadow var(--transition);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="hidden"]):focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(167, 25, 48, 0.09);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--primary);
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+
+/* 22. SHARED TABLE STYLING
+========================================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #f0f3f8;
+    color: var(--text);
+    font-weight: 700;
+    text-align: left;
+    font-size: 13px;
+}
+
+th,
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+td {
+    color: var(--text-light);
+}
+
+tbody tr {
+    transition: background var(--transition);
+}
+
+tbody tr:hover {
+    background: #fafbfc;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* 23. SHARED ALERTS AND STATUS LABELS
+========================================================= */
+
+.success,
+.success-message,
+.alert-success {
+    background: var(--success-bg);
+    color: var(--success);
+    border: 1px solid #b8e0c7;
+    padding: 13px 16px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.error,
+.error-message,
+.alert-error {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border: 1px solid #f2c2c2;
+    padding: 13px 16px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.warning,
+.warning-message,
+.alert-warning {
+    background: var(--warning-bg);
+    color: var(--warning);
+    border: 1px solid #f0d9a7;
+    padding: 13px 16px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.info,
+.info-message,
+.alert-info {
+    background: var(--info-bg);
+    color: var(--info);
+    border: 1px solid #c7dcf5;
+    padding: 13px 16px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+
+/* 24. RESPONSIVE DESIGN - TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .donor-main,
+    .hospital-main,
+    .admin-main {
+        width: 92%;
+    }
+
+    .donor-cards,
+    .hospital-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .request-card-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header nav {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* 25. RESPONSIVE DESIGN - MOBILE AND SMALL TABLETS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px 20px;
+    }
+
+    .nav-buttons {
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 400px;
+        padding: 55px 20px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .statistics {
+        gap: 16px;
+        padding: 40px 5%;
+    }
+
+    .stat-box {
+        min-width: 180px;
+    }
+
+    .emergency,
+    .how-it-works {
+        padding: 50px 5%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .donor-navbar {
+        padding: 16px 5%;
+    }
+
+    .donor-nav-links {
+        justify-content: center;
+        gap: 14px 18px;
+    }
+
+    .hospital-navbar,
+    .admin-navbar,
+    .profile-navbar {
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 5%;
+    }
+
+    .hospital-nav-links,
+    .admin-nav-links,
+    .profile-nav-links {
+        justify-content: center;
+        gap: 14px 18px;
+    }
+
+    .donor-cards,
+    .hospital-cards,
+    .admin-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .donor-info-section,
+    .hospital-info-section,
+    .admin-info-section {
+        grid-template-columns: 1fr;
+    }
+
+    .donor-welcome,
+    .hospital-welcome,
+    .admin-welcome {
+        padding: 30px;
+    }
+
+    .donor-welcome h1,
+    .hospital-welcome h1,
+    .admin-welcome h1 {
+        font-size: 27px;
+    }
+
+    .donor-main,
+    .hospital-main,
+    .admin-main {
+        margin: 28px auto;
+    }
+
+    .profile-main,
+    .hospital-requests-main {
+        width: 92%;
+        margin: 28px auto;
+    }
+
+    .profile-navbar {
+        gap: 15px;
+    }
+}
+
+
+/* 26. RESPONSIVE DESIGN - MOBILE PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        gap: 12px 16px;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons a {
+        width: 210px;
+        text-align: center;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .statistics {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-box {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .request-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .donor-cards,
+    .hospital-cards,
+    .admin-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .donor-main,
+    .hospital-main,
+    .admin-main {
+        width: 92%;
+    }
+
+    .donor-welcome,
+    .hospital-welcome,
+    .admin-welcome {
+        padding: 25px;
+        border-radius: 14px;
+    }
+
+    .donor-welcome h1,
+    .hospital-welcome h1,
+    .admin-welcome h1 {
+        font-size: 24px;
+    }
+
+    .donor-card,
+    .hospital-card,
+    .admin-card,
+    .donor-info-box,
+    .hospital-info-box,
+    .admin-info-box {
+        padding: 23px;
+    }
+
+    .donor-nav-links,
+    .hospital-nav-links,
+    .admin-nav-links,
+    .profile-nav-links {
+        gap: 12px;
+    }
+
+    .donor-nav-links a,
+    .hospital-nav-links a,
+    .admin-nav-links a,
+    .profile-nav-links a {
+        font-size: 12px;
+    }
+
+    .donor-nav-links .donor-logout-btn,
+    .hospital-nav-links .hospital-logout-btn,
+    .admin-nav-links .admin-logout-btn {
+        padding: 8px 12px;
+    }
+
+    .donor-nav-brand,
+    .hospital-nav-brand,
+    .admin-nav-brand,
+    .profile-brand {
+        font-size: 23px;
+    }
+
+    .profile-card,
+    .edit-profile-card {
+        padding: 23px;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header h1 {
+        font-size: 26px;
+    }
+
+    .edit-profile-main {
+        width: 92%;
+        margin: 28px auto;
+    }
+
+    .edit-profile-card h1 {
+        font-size: 24px;
+    }
+
+    .profile-edit-btn {
+        display: block;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .hospital-request-card {
+        padding: 19px;
+    }
+
+    .request-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .request-card-details {
+        grid-template-columns: 1fr;
+    }
+
+    .request-card-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .request-card-actions a,
+    .request-card-actions button {
+        text-align: center;
+        width: 100%;
+    }
+
+    .login-card {
+        padding: 29px 23px;
+    }
+
+    .login-brand h1 {
+        font-size: 29px;
+    }
+
+    .login-heading h2 {
+        font-size: 22px;
+    }
+
+    .register-form {
+        padding: 25px 21px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 12px;
+    }
+}
+
+
+/* 27. ACCESSIBILITY: REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
